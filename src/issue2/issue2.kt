@@ -1,4 +1,4 @@
-package issue2_even_fib_numbers
+package issue2
 
 import euler.Issue
 
@@ -57,6 +57,7 @@ find the sum of the even-valued terms.
                 accum += lastFib
             }
         }
+        //Result: 4613732
         println(accum)
     }
 }

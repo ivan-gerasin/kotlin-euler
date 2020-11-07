@@ -1,4 +1,4 @@
-package issue1_multiples_of_3_and_5
+package issue1
 
 import euler.Issue
 
