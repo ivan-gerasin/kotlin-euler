@@ -2,9 +2,11 @@ package main
 
 import euler.Issue
 import issue1_multiples_of_3_and_5.Issue1
+import issue2_even_fib_numbers.Issue2
 
 val issues = listOf<Issue>(
-    Issue1()
+    Issue1(),
+    Issue2()
 )
 fun main() {
     print("Enter number of issue: ")

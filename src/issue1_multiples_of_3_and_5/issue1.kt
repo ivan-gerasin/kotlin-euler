@@ -17,6 +17,7 @@ class Issue1 : Issue {
                 accumulator += i
             }
         }
+        //Result: 233168
         println(accumulator)
     }
 }
