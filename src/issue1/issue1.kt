@@ -1,6 +1,6 @@
 package issue1
 
-import euler.Issue
+import main.Issue
 
 class Issue1 : Issue {
 
@@ -17,7 +17,7 @@ class Issue1 : Issue {
                 accumulator += i
             }
         }
-        //Result: 233168
+        //TimingResult: 233168
         println(accumulator)
     }
 }

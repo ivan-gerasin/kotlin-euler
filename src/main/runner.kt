@@ -1,11 +1,9 @@
 package main
 
-import euler.Issue
 import issue1.Issue1
 import issue2.Issue2
-import java.io.IOException
-import java.time.LocalDate
-import java.util.concurrent.TimeUnit
+import timingResults.ResultsWriter
+import timingResults.TimingResult
 
 val issues = listOf<Issue>(
     Issue1(),
@@ -17,10 +15,14 @@ fun main() {
     if (issueNumberAsStr != null) {
         try {
             val issueNumber = issueNumberAsStr.toInt()
-            val startTime = System.currentTimeMillis()
+            val startTime = System.nanoTime()
             issues[issueNumber - 1].run()
-            val endTime = System.currentTimeMillis()
-            val resultTime = endTime-startTime
+            val endTime = System.nanoTime()
+            println(endTime-startTime)
+            println("Elapsed time: ${endTime-startTime}")
+            val record = TimingResult(endTime-startTime).getRecord()
+            ResultsWriter(record, "issue$issueNumber").save()
+
         } catch (e: NumberFormatException) {
             println("Invalid value - should be a number")
         } catch (e: IndexOutOfBoundsException) {
@@ -29,13 +31,3 @@ fun main() {
     }
 }
 
-fun getCommitHash(): String? {
-    try {
-        val proc = ProcessBuilder("git", "rev-parse", "HEAD").start()
-        proc.waitFor(60, TimeUnit.MINUTES)
-        return proc.inputStream.bufferedReader().readText()
-    } catch(e: IOException) {
-        e.printStackTrace()
-        return null
-    }
-}

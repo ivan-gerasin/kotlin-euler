@@ -1,6 +1,6 @@
 package issue2
 
-import euler.Issue
+import main.Issue
 
 class Issue2 : Issue {
 /*
@@ -57,7 +57,7 @@ find the sum of the even-valued terms.
                 accum += lastFib
             }
         }
-        //Result: 4613732
+        //TimingResult: 4613732
         println(accum)
     }
 }

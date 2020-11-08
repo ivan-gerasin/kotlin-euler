@@ -1,6 +1,6 @@
 package issue3
 
-import euler.Issue
+import main.Issue
 
 class Issue3 : Issue {
 /*
