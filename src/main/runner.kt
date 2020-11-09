@@ -2,12 +2,14 @@ package main
 
 import issue1.Issue1
 import issue2.Issue2
+import issue3.Issue3
 import timingResults.ResultsWriter
 import timingResults.TimingResult
 
 val issues = listOf<Issue>(
     Issue1(),
-    Issue2()
+    Issue2(),
+    Issue3()
 )
 fun main() {
     print("Enter number of issue: ")
@@ -18,8 +20,7 @@ fun main() {
             val startTime = System.nanoTime()
             issues[issueNumber - 1].run()
             val endTime = System.nanoTime()
-            println(endTime-startTime)
-            println("Elapsed time: ${endTime-startTime}")
+            println("Elapsed time: ${endTime-startTime}ns")
             val record = TimingResult(endTime-startTime).getRecord()
             ResultsWriter(record, "issue$issueNumber").save()
 
