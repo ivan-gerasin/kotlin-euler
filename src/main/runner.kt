@@ -1,12 +1,15 @@
 package main
 
+import issues.*
+
 val allIssue = listOf<Issue>(
-    issues.Issue1(),
-    issues.Issue2(),
-    issues.Issue3(),
-    issues.Issue4(),
-    issues.Issue5(),
-    issues.Issue6()
+    Issue1(),
+    Issue2(),
+    Issue3(),
+    Issue4(),
+    Issue5(),
+    Issue6(),
+    Issue7()
 )
 fun main() {
     print("Enter number of issue: ")
