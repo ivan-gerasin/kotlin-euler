@@ -1,7 +1,6 @@
-package issue3
+package issues
 
 import main.Issue
-import kotlin.concurrent.thread
 
 class Issue3 : Issue {
 /*

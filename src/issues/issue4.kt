@@ -1,4 +1,4 @@
-package issue4
+package issues
 
 import main.Issue
 
