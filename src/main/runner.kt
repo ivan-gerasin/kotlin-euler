@@ -9,7 +9,8 @@ val allIssue = listOf<Issue>(
     Issue4(),
     Issue5(),
     Issue6(),
-    Issue7()
+    Issue7(),
+    Issue8()
 )
 fun main() {
     print("Enter number of issue: ")
