@@ -4,6 +4,7 @@ import issue1.Issue1
 import issue2.Issue2
 import issue3.Issue3
 import issue4.Issue4
+import issue5.Issue5
 import timingResults.ResultsWriter
 import timingResults.TimingResult
 
@@ -11,7 +12,8 @@ val issues = listOf<Issue>(
     Issue1(),
     Issue2(),
     Issue3(),
-    Issue4()
+    Issue4(),
+    Issue5()
 )
 fun main() {
     print("Enter number of issue: ")
