@@ -20,7 +20,7 @@ What is the largest prime factor of the number 600851475143 ?
     }
 
     private fun evalIsPrime(num: Long): Boolean {
-        for (i in 2 .. Math.sqrt(num.toDouble()).toLong()) {
+        for (i in 3 .. Math.sqrt(num.toDouble()).toLong() step 2) {
             val res = num % i == 0.toLong()
             if (res) {
                 primes[num] = false
@@ -31,41 +31,26 @@ What is the largest prime factor of the number 600851475143 ?
         return true
     }
 
-    fun searchForFactor(lowerEdge: Long, topEdge: Long, target: Long): Long? {
-        var current = topEdge
-        while (current > lowerEdge) {
-            current--
+    fun searchForFactor(target: Long): Long? {
+        var current = 1L
+        var largestPrime = 1L
+        val targetSqrt = Math.sqrt(target.toDouble()).toLong()
+        while (current < targetSqrt) {
+            current += 2
             val leftOver = target%current
             if (leftOver == 0.toLong()) {
                 if (isPrime(current)) {
-                    return current
+                    largestPrime = current
                 }
             }
         }
-        return null
+        return largestPrime
     }
 
     override fun run() {
         val top = 600851475143
-        val numberOfThreads = 8
-        val chunkSize = top/numberOfThreads
-        val portions = mutableListOf<Pair<Long, Long>>()
-
-        for (i in 1 .. numberOfThreads) {
-            portions.add(Pair((i-1)*chunkSize, chunkSize*i))
-        }
-
-        for (portion in portions) {
-            thread {
-                val result = searchForFactor(portion.first, portion.second, top)
-                if (result!=null) {
-                    println("Result of $portion")
-                    println(result)
-                }
-            }
-        }
+        val res = searchForFactor(top)
+        println(res)
+        //Result: 6857
     }
-    //Result: 6857
-
-    //TODO: this take too much time and timer don't works properly
 }
